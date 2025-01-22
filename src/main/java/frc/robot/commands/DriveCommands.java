@@ -70,11 +70,10 @@ public class DriveCommands {
         return Commands.run(
                 () -> {
                     // Get linear velocity
-                    Translation2d linearVelocity =
-                            getLinearVelocityFromJoysticks(xSupplier.getAsDouble(), ySupplier.getAsDouble());
+                    Translation2d linearVelocity = getLinearVelocityFromJoysticks(xSupplier.getAsDouble(), 0);
 
                     // Apply rotation deadband
-                    double omega = MathUtil.applyDeadband(omegaSupplier.getAsDouble(), DEADBAND);
+                    double omega = MathUtil.applyDeadband(ySupplier.getAsDouble(), DEADBAND);
 
                     // Square rotation value for more precise control
                     omega = Math.copySign(omega * omega, omega);
@@ -86,9 +85,12 @@ public class DriveCommands {
                             omega * drive.getMaxAngularSpeedRadPerSec());
                     boolean isFlipped = DriverStation.getAlliance().isPresent()
                             && DriverStation.getAlliance().get() == Alliance.Red;
+                    /* they assumed that the driver pointed in the direction the robot was supposed to go relative to the field, which doesn't work at all on a tank drive
                     speeds = ChassisSpeeds.fromFieldRelativeSpeeds(
                             speeds,
-                            isFlipped ? drive.getRotation().plus(new Rotation2d(Math.PI)) : drive.getRotation());
+                            isFlipped ? drive.getRotation().plus(new Rotation2d(Math.PI)) : drive.getRotation());\
+                    */
+
                     drive.runVelocity(speeds);
                 },
                 drive);

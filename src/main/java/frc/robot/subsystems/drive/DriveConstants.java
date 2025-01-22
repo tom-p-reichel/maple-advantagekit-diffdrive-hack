@@ -125,7 +125,7 @@ public class DriveConstants {
                     driveMotorReduction,
                     turnMotorReduction,
                     Volts.of(0.1),
-                    Volts.of(0.1),
+                    Volts.of(1000000), // a tank drive is just a swerve drive that doesn't swerve
                     Meters.of(wheelRadiusMeters),
                     KilogramSquareMeters.of(0.02),
                     wheelCOF));
