@@ -44,10 +44,10 @@ public class DriveConstants {
     public static final Rotation2d backLeftZeroRotation = new Rotation2d(0.0);
     public static final Rotation2d backRightZeroRotation = new Rotation2d(0.0);
 
-    public static final int frontLeftDriveCanId = 1;
-    public static final int backLeftDriveCanId = 3;
-    public static final int frontRightDriveCanId = 5;
-    public static final int backRightDriveCanId = 7;
+    public static final int frontLeftDriveCanId = 10;
+    public static final int backLeftDriveCanId = 12;
+    public static final int frontRightDriveCanId = 14;
+    public static final int backRightDriveCanId = 16;
 
     // Drive motor configuration
     public static final int driveMotorCurrentLimit = 60;

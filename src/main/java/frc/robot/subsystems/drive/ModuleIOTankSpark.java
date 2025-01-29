@@ -77,7 +77,7 @@ public class ModuleIOTankSpark implements ModuleIO {
         // Configure drive motor
         var driveConfig = new SparkMaxConfig();
         driveConfig
-                .idleMode(IdleMode.kBrake)
+                .idleMode(IdleMode.kCoast)
                 .smartCurrentLimit(driveMotorCurrentLimit)
                 .voltageCompensation(12.0);
         driveConfig
