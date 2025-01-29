@@ -57,11 +57,11 @@ public class RobotContainer {
             case REAL:
                 // Real robot, instantiate hardware IO implementations
                 drive = new Drive(
-                        new GyroIOPigeon2(),
-                        new ModuleIOSpark(0),
-                        new ModuleIOSpark(1),
-                        new ModuleIOSpark(2),
-                        new ModuleIOSpark(3));
+                        new GyroIODummy(),
+                        new ModuleIOTankSpark(0),
+                        new ModuleIOTankSpark(1),
+                        new ModuleIOTankSpark(2),
+                        new ModuleIOTankSpark(3));
 
                 /*
                 this.vision = new Vision(
